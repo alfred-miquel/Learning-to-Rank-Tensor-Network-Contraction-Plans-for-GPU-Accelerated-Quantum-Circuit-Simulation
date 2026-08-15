@@ -1,0 +1,1 @@
+Explcació sobre fitxers .qasm
