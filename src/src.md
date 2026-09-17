@@ -1,0 +1,1 @@
+explicació de scr
