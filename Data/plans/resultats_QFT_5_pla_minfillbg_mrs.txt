@@ -1,0 +1,42 @@
+t11 t17 I1 3 2 3  Index{Int64}[(dim=2|id=465|"Qubit3")''] 0.001296462
+t18 t19 I2 3 3 4  Index{Int64}[(dim=2|id=848)] 0.000406861
+t31 t39 I3 3 1 2  Index{Int64}[(dim=2|id=454|"Qubit1")'7] 0.000298651
+t27 I3 I4 3 2 3  Index[(dim=2|id=454|"Qubit1")'6] 0.00022447
+t9 I4 I5 3 3 4  Index[(dim=2|id=454|"Qubit1")'5] 0.000263001
+t33 t40 I6 3 1 2  Index{Int64}[(dim=2|id=363|"Qubit2")'8] 0.00029255
+t32 t41 I7 3 1 2  Index{Int64}[(dim=2|id=465|"Qubit3")'6] 0.000313101
+I7 I6 I8 2 2 2  Index[(dim=2|id=624)] 0.00014848
+t21 I8 I9 3 2 3  Index[(dim=2|id=465|"Qubit3")'5] 0.00018297
+t30 I9 I10 3 3 4  Index[(dim=2|id=363|"Qubit2")'7] 0.000157701
+t26 t43 I11 3 1 2  Index{Int64}[(dim=2|id=89|"Qubit5")'6] 0.00026683
+t25 I11 I12 2 2 2  Index[(dim=2|id=89|"Qubit5")'5] 0.000175831
+t23 I12 I13 3 2 3  Index[(dim=2|id=89|"Qubit5")'4] 0.00024396
+t28 t42 I14 3 1 2  Index{Int64}[(dim=2|id=724|"Qubit4")'6] 0.000290491
+t24 I14 I15 3 2 3  Index[(dim=2|id=724|"Qubit4")'5] 0.00015047
+t22 I15 I16 2 3 3  Index[(dim=2|id=724|"Qubit4")'4] 0.00015909
+I13 I16 I17 3 3 4  Index[(dim=2|id=443)] 0.000226671
+t16 t29 I18 3 3 4  Index{Int64}[(dim=2|id=363|"Qubit2")'5] 0.000399241
+t8 t38 I19 3 1 2  Index{Int64}[(dim=2|id=89|"Qubit5")] 0.00035723
+I19 t15 I20 2 3 3  Index[(dim=2|id=89|"Qubit5")'] 0.000177141
+I20 t20 I21 3 3 4  Index[(dim=2|id=89|"Qubit5")''] 0.00015403
+I21 I18 I22 4 4 6  Index[(dim=2|id=656)] 0.0001913
+I22 I17 I23 6 4 6  Index[(dim=2|id=89|"Qubit5")''', (dim=4|id=343)] 0.000282431
+I23 I10 I25 6 4 6  Index[(dim=2|id=180), (dim=2|id=363|"Qubit2")'6] 0.000290191
+I25 I5 I27 6 4 4  Index[(dim=2|id=199), (dim=4|id=30), (dim=2|id=709)] 0.0003378
+I2 I27 I30 4 4 4  Index[(dim=2|id=724|"Qubit4")''', (dim=2|id=465|"Qubit3")'4] 0.000348361
+t6 t37 I32 3 1 2  Index{Int64}[(dim=2|id=724|"Qubit4")] 0.000346471
+I32 t13 I33 2 3 3  Index[(dim=2|id=724|"Qubit4")'] 0.00015601
+I33 t14 I34 3 3 4  Index[(dim=2|id=108)] 0.00016954
+I34 I30 I35 4 4 4  Index[(dim=2|id=724|"Qubit4")'', (dim=2|id=363|"Qubit2")'4] 0.000263341
+t7 I35 I37 3 4 3  Index[(dim=2|id=708), (dim=2|id=454|"Qubit1")'4] 0.00025074
+I1 I37 I39 3 3 4  Index[(dim=2|id=465|"Qubit3")'''] 0.000194721
+t12 I39 I40 3 4 3  Index[(dim=2|id=506), (dim=2|id=363|"Qubit2")'''] 0.00021135
+t4 t36 I42 3 1 2  Index{Int64}[(dim=2|id=465|"Qubit3")] 0.000313411
+I42 I40 I43 2 3 3  Index[(dim=2|id=465|"Qubit3")'] 0.0001482
+t5 I43 I44 3 3 2  Index[(dim=2|id=101), (dim=2|id=454|"Qubit1")'''] 0.00018781
+t2 t35 I46 3 1 2  Index{Int64}[(dim=2|id=363|"Qubit2")] 0.00030617
+I46 t10 I47 2 2 2  Index[(dim=2|id=363|"Qubit2")'] 0.00010603
+I47 I44 I48 2 2 2  Index[(dim=2|id=363|"Qubit2")''] 0.000115841
+t3 I48 I49 3 2 1  Index[(dim=2|id=709), (dim=2|id=454|"Qubit1")''] 0.00014253
+t1 t34 I51 2 1 1  Index{Int64}[(dim=2|id=454|"Qubit1")] 0.0002559
+I51 I49 I52 1 1 0  Index[(dim=2|id=454|"Qubit1")'] 7.2461e-5
