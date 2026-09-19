@@ -36,6 +36,9 @@ Here is a simple "Hello World" example to run the code on a GHZ circuit of a spe
 ### Julia Code Example
 
 ```julia
+# Create a project
+]activate New_Project_on_QXTools;
+
 # Add necessary packages
 import Pkg; 
 Pkg.add("QXTools")
