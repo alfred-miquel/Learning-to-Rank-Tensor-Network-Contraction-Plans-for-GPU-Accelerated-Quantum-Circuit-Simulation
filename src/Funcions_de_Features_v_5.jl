@@ -1,7 +1,7 @@
 
 
 # =============================================================================
-# Funcions_de_Features.jl (versió millorada. Versió 5 del document de IA)
+# Funcions_de_Features.jl (versió millorada. Versió 5 del document)
 # =============================================================================
 # Funcions relacionades amb el càlcul de features basat en les dades de 
 # contraccions de tensors.
