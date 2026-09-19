@@ -1,6 +1,6 @@
 using DataFrames, Statistics #, Plots
 
-# Estructura para almacenar los datos de cada contracción
+# Estructura per a emmagatzemar les dades de cada contracció
 struct Contraction
     tensorA::String
     tensorB::String
@@ -22,7 +22,7 @@ const index_max = 100 # suposem que el rang maxim que podrem compartir ser+a 100
 
 
 
-# Función para leer el archivo y parsear los datos
+# Funció per a llegir de l'arxiu i parsejar les dades
 function read_contractions_analisi_ranks_indexs(filename::String; verbose=true)
 
      #iniciem els comptadors
@@ -58,7 +58,7 @@ function read_contractions_analisi_ranks_indexs(filename::String; verbose=true)
               println("rankA: $rankA")
               println("rankB: $rankB")
             end
-            # Los índices comunes pueden contener espacios, así que los juntamos
+            # Els índexs comuns poden contenir espais, així que els enjuntem
             common_indices = join(parts[7:end-1], " ") #modifiquem end-2
             # num_common_indices = parse(Int, parts[end-1]) #llevem el penúltim camp i el calculem
             divisio = ((rankA + rankB) -rankC)/2
