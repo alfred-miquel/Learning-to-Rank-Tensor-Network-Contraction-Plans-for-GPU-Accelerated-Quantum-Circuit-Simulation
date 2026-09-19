@@ -19,7 +19,7 @@ To test the code, ensure the following software is installed:
 
 1. **Julia**
    - Download and install Julia from [https://julialang.org/](https://julialang.org/).
-
+  All the software tested in this repository has been executed using the **Julia Version 1.9.1**
 2. **Python** (for running the Jupyter notebooks)
    - Install Python from [https://www.python.org/](https://www.python.org/).
    - Install Jupyter Notebook by running:
@@ -62,6 +62,10 @@ using ITensors
 using LinearAlgebra
 using NDTensors
 
+# checking the Julia version
+ VERSION
+# more information
+versioninfo()
 # Load custom functions from the folder src
 include("../src/funcions_article_IA.jl");
 
