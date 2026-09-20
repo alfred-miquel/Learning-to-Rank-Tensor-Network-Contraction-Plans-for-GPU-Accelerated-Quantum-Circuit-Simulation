@@ -1,4 +1,7 @@
 # Learning-to-Rank-Tensor-Network-Contraction-Plans-for-GPU-Accelerated-Quantum-Circuit-Simulation
+
+*Pastor, A. M., Castillo, M., & Badía, J. M. (2026). Learning to Rank Tensor Network Contraction Plans for GPU-Accelerated Quantum Circuit Simulation. arXiv preprint arXiv:2608.05819.*
+
 The circuit instances, candidate contraction plans, measured execution times, feature-extraction scripts, and analysis code supporting this study will be made available in this public repository upon publication.
 
 
