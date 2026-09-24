@@ -16,6 +16,8 @@ This directory contains all the data used in the article split into various subd
 ### `Jupyter Notebooks`
 Various commented Jupyter notebooks are provided to test the algorithms and replicate experimental results included in the article. These notebooks guide users through setting up and running the experiments step by step.
 
+### `models`
+Some XGBoost models are stored in this directory
 ## Prerequisites
 
 To test the code, ensure the following software is installed:
