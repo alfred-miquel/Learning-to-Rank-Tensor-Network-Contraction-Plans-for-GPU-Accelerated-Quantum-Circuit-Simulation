@@ -1224,86 +1224,64 @@ function ComParCPU_para_GHZ(circ::Circ, entrada::String, eixida::String;timings:
 end
 
 ######################################################################################################################################################
-## New functions for article 
+## New functions for article
 ########################################################################################################################################################
 
-function contract_tn_rank_mock!(tn::TensorNetwork, plan::Array{NTuple{3, Symbol}, 1}; mock::Bool=false, verbose::Bool=true,fitxer_sortida="fitxer_sortida.txt")
-          # Dades= []
-           acum= 0
-           llargaria = length(tn)
+function contract_tn_rank_mock!(tn::TensorNetwork, plan::Array{NTuple{3, Symbol}, 1}; mock::Bool=false, verbose::Bool=true )
+   # Dades= []
+    acum= 0
+    llargaria = length(tn)
 
 
-          
-           f = open(fitxer_sortida, "w")
-
-           for (A_id, B_id, C_id) in plan
-               @assert haskey(tn.tensor_map, A_id)
-               @assert haskey(tn.tensor_map, B_id)
-
-               #println("Anem a contractar $A_id amb rang $(tn.:tensor_map[A_id].rank) i $B_id amb rang $(tn.:tensor_map[B_id].rank)")
-               stats = @timed  contract_pair_rank!(f,tn, A_id, B_id, C_id,mock=mock,verbose=verbose)
+    f = open("fitxer_sortida.txt", "w")
 
 
-               
-          # Dades= []
-           acum= 0
-           llargaria = length(tn)
+    for (A_id, B_id, C_id) in plan
+        @assert haskey(tn.tensor_map, A_id)
+        @assert haskey(tn.tensor_map, B_id)
+
+        #println("Anem a contractar $A_id amb rang $(tn.:tensor_map[A_id].rank) i $B_id amb rang $(tn.:tensor_map[B_id].rank)")
+        stats = @timed  contract_pair_rank!(f,tn, A_id, B_id, C_id,mock=mock,verbose=verbose)
 
 
-           #f = open("fitxer_sortida.txt", "w")
-           f = open(fitxer_sortida, "w")
+        #println("El temps de la contracció de $(stats.time)")
+        #println()
+        #println("Després de la contracció el rang del producte o resultat és $C_id amb rang $(tn.:tensor_map[C_id].rank) i amb un temps de $(stats.time)")
+        #println()
+        println
+        if verbose
+           println("$(stats.time)")
+        end
+        println(f, "$(stats.time)")
+        # push!(Dades,(stats.time,A_id,tn.:tensor_map[A_id].rank,B_id,tn.:tensor_map[B_id].rank,C_id,C_id,tn.:tensor_map[C_id]))
 
-           for (A_id, B_id, C_id) in plan
-               @assert haskey(tn.tensor_map, A_id)
-               @assert haskey(tn.tensor_map, B_id)
+        acum = acum + stats.time #temps total de les contraccions per parelles
+         #rank_a= tn.:tensor_map[A_id].rank
+         #rank_b= tn.:tensor_map[B_id].rank
+         #rank_c= tn.:tensor_map[C_id].rank
+        #push!(Dades,(stats.time,A_id,tn.:tensor_map[A_id].rank,B_id,tn.:tensor_map[B_id].rank,C_id,C_id,tn.:tensor_map[C_id]))
+    end
 
-               #println("Anem a contractar $A_id amb rang $(tn.:tensor_map[A_id].rank) i $B_id amb rang $(tn.:tensor_map[B_id].rank)")
-               stats = @timed  contract_pair_rank!(f,tn, A_id, B_id, C_id,mock=mock,verbose=verbose)
-
-
-               #println("El temps de la contracció de $(stats.time)")
-               #println()
-               #println("Després de la contracció el rang del producte o resultat és $C_id amb rang $(tn.:tensor_map[C_id].rank) i amb un temps de $(stats.time)")
-               #println()
-               println
-               if verbose
-                  println("$(stats.time)")
-               end
-               println(f, "$(stats.time)")
-               # push!(Dades,(stats.time,A_id,tn.:tensor_map[A_id].rank,B_id,tn.:tensor_map[B_id].rank,C_id,C_id,tn.:tensor_map[C_id]))
-
-               acum = acum + stats.time #temps total de les contraccions per parelles
-                #rank_a= tn.:tensor_map[A_id].rank
-                #rank_b= tn.:tensor_map[B_id].rank
-                #rank_c= tn.:tensor_map[C_id].rank
-               #push!(Dades,(stats.time,A_id,tn.:tensor_map[A_id].rank,B_id,tn.:tensor_map[B_id].rank,C_id,C_id,tn.:tensor_map[C_id]))
-           end
-
-           # close(f)  # Important tancar el fitxer!
+    close(f)  # Important tancar el fitxer!
 
 
 
-            println()
-            println(" Ara contractem la resta de la xarxa, és a dir els vectors disjunts")
-           # Contract any disjoint tensors that may remain before returning the result.
-           stats_b = @timed simple_contraction_rank!(f,tn)
-           temps_total= acum + stats_b.time
-           println("El temps de la contracció de la xarxa disjunta és $(stats_b.time)")
-           println()
-            println("La CONTRACCIÓ TOTAL de la xarxa que té longitud $llargaria, el tensor final $(keys(tn.tensor_map)) amb valua $(values(tn.tensor_map))i un pla amb longitud $(length(plan)) triga: $temps_total")
-           #println("La CONTRACCIÓ TOTAL de la xarxa que té longitud $llargaria, el tensor final $(keys(tn.tensor_map)) amb valua $(values(tn.tensor_map).storage) i un pla amb longitud $(length(plan)) triga: $temps_total")
+     println()
+     println(" Ara contractem la resta de la xarxa, és a dir els vectors disjunts")
+    # Contract any disjoint tensors that may remain before returning the result.
+    stats_b = @timed simple_contraction_rank!(tn)
+    temps_total= acum + stats_b.time
+    println("El temps de la contracció de la xarxa disjunta és $(stats_b.time)")
+    println()
+     println("La CONTRACCIÓ TOTAL de la xarxa que té longitud $llargaria, el tensor final $(keys(tn.tensor_map)) amb valua $(values(tn.tensor_map)) i un pla amb longitud $(length(plan)) triga: $temps_total")
+    #println("La CONTRACCIÓ TOTAL de la xarxa que té longitud $llargaria, el tensor final $(keys(tn.tensor_map)) amb valua $(values(tn.tensor_map).storage) i un pla amb longitud $(length(plan)) triga: $temps_total")
 
-           println("------------------------------------------------------------------------------------------------")
+    println("------------------------------------------------------------------------------------------------")
 
-           close(f)  # Important tancar el fitxer!
-
-           return temps_total
-           #return stats_b
-
-       end
+    return temps_total
+    #return stats_b
 
 end
-
 
     """
            simple_contraction_rank!(f,tn::TensorNetwork)
@@ -1331,7 +1309,33 @@ end
        end
 
 
-    """
+"""
+    simple_contraction_rank!(tn::TensorNetwork)
+
+Function to perfrom a simple contraction, contracting all tensors in order.
+Only useful for very small networks for testing.
+"""
+function simple_contraction_rank!(tn::TensorNetwork)
+    tensor_syms = collect(keys(tn))
+    A = tensor_syms[1]
+    for B in tensor_syms[2:end]
+        println("Hem contractat els tensors disjunts $A amb rang $(tn.:tensor_map[A].rank)  i $B amb rang $(tn.:tensor_map[B].rank)")
+
+        t1 = time();
+        A =  contract_pair!(tn, A, B)
+        elapsed_time = time() - t1;
+        println("El resultat de la contracció dels disjunts és $A i té un rang de $(tn.:tensor_map[A].rank)i ha trigat $elapsed_time ")
+        println()
+    end
+    store(tn[A])
+end
+
+
+
+
+
+
+"""
     contract_pair!(tn::TensorNetwork, a_sym::Symbol, b_sym::Symbol, c_sym::Symbol=:_; mock::Bool=false)
 
 Contract the tensors in 'tn' with ids 'a_sym' and 'b_sym'. If the mock flag is true then the
@@ -1377,7 +1381,6 @@ function contract_pair_rank!(f::IO,tn::TensorNetwork, a_sym::Symbol, b_sym::Symb
         c_sym
      #return Dades
 end
-
 
     
 
